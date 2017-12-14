@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="button-row" style="text-align: center">
+        <button mat-raised-button>Basic</button>
+        <button mat-raised-button color="primary" (click)="openSnackBar('고경준 천재님 ', 'alert')">Primary</button>
+        <button mat-raised-button color="accent" (click)="openDialog('고경준천재님이실까요?')">Accent</button>
+        <button mat-raised-button color="warn">Warn</button>
+        <button mat-raised-button disabled>Disabled</button>
+        <a mat-raised-button routerLink=".">Link</a>
+    </div>
+
+
+
+    <mat-progress-spinner
+        class="example-margin"
+        [mode]="mode"
+        [color]="green"
+        [hidden]="!showSpinner"
+        [value]="value">
+    </mat-progress-spinner>
+    <div class="search-results"
+         infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="50"
+         (scrolled)="onScroll()">
+        <mat-grid-list cols="6" rowHeight="300px">
+            <mat-grid-tile *ngFor="let item of numbers; let i =index" (click)="openDialog('고경준천재님이십????????????', i)">
+                <img src="assets/images/{{numbers[i]}}.jpg" style="width: 200px;height: 300px"/><br/>
+                {{item}}
+
+            </mat-grid-tile>
+        </mat-grid-list>
+
+
+    </div>
+
+
+</div>
+
+<!-- <div class="search-results"
+      infinite-scroll
+      [infiniteScrollDistance]="0.3"
+      [infiniteScrollThrottle]="300"
+      (scrolled)="onScroll()">
+ </div>
+-->
+
+
