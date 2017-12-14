@@ -1,0 +1,49 @@
+
+
+.white001{
+    background-color: white;
+    text-decoration: none;
+}
+.white001 a:hover{
+    color: #1c7430;
+
+}
+
+.white001 a:visited{
+    color: #1c7430;
+
+}
+
+/* MAIN SITE NAVIGATION */
+.navbar-default {
+    font-size: 14px;
+    background-color: #FFFFFF;
+    border-bottom-width: 0px;
+    color: #1c7430;
+}
+.navbar-default .navbar-nav{
+    background-color: #FFFFFF;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #323232;
+    background-color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    color: #50A0FF;
+    background-color: white;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #3b8dff;
+    background-color: #000000;
+}
+.navbar-default .navbar-nav li .active {
+    background-color: red !important;
+}
+

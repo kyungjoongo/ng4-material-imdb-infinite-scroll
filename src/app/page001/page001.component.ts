@@ -10,32 +10,24 @@ import {MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material';
     styleUrls: ['./page001.component.css'],
 })
 export class Page001Component implements OnInit {
-    color = 'primary';
+    color = 'warn';
     mode = 'indeterminate';
-    /*mode = 'determinate';*/
     value = 30;
     showSpinner = false;
-
-
     results = [];
     numbers = [];
 
     onScroll() {
-
-
-
-
         this.showSpinner = true;
         for (let i = 1; i <= 35; i++) {
             this.numbers.push(i);
         }
-
-        setTimeout(()=>{
+        /**
+         * 1분 있다가 콜백안에 있는 구문을 실행.
+         */
+        setTimeout(() => {
             this.showSpinner = false;
-        },1000);
-
-
-
+        }, 1000);
     }
 
     constructor(private http: HttpService, public dialog: MatDialog
@@ -53,7 +45,6 @@ export class Page001Component implements OnInit {
             panelClass: ['success-snackbar'],
             duration: 1000,
             verticalPosition: 'top'
-
         });
     }
 
@@ -62,7 +53,6 @@ export class Page001Component implements OnInit {
     }
 
     clickedPoster() {
-
         alert('sdlfksdlkf');
     }
 
@@ -73,7 +63,6 @@ export class Page001Component implements OnInit {
         }
         return res;
     }
-
 
     animal: string;
     name: string;

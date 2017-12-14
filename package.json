@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "ng:serve": "ng serve",
+        "ng:serve": "ng serve --host=0.0.0.0 --disable-host-check",
         "build": "ng build --prod",
         "test": "ng test",
         "lint": "ng lint",
@@ -22,7 +22,7 @@
         "@angular/material": "^5.0.1",
         "@angular/platform-browser": "^5.0.0",
         "@angular/platform-browser-dynamic": "^5.0.0",
-        "@angular/router": "^5.0.0",
+        "@angular/router": "^5.1.1",
         "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.7",
         "angular2-infinite-scroll": "^0.3.5",
         "core-js": "^2.4.1",

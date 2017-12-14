@@ -13,17 +13,29 @@ import {DialogOverviewExampleDialog} from './common/common.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {RouterModule,Routes} from '@angular/router';
+import { Page002Component } from './page002/page002.component';
+import { Page003Component } from './page003/page003.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
+export const ROUTES: Routes = [
+    { path: '', component: Page001Component },
+    { path: 'page2', component: Page002Component },
+    { path: 'page3', component: Page003Component }
+];
+
 
 @NgModule({
     declarations: [
         AppComponent,
-        Page001Component, DialogOverviewExampleDialog
+        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component
     ],
     imports: [
         BrowserModule, HttpModule, HttpClientModule, MatButtonModule, MatDialogModule, BrowserAnimationsModule, NoopAnimationsModule
         , NgbModule.forRoot(), MatGridListModule, MatSnackBarModule, InfiniteScrollModule, MatProgressSpinnerModule
+        , RouterModule.forRoot(ROUTES), MatTabsModule
     ],
     providers: [HttpService],
     bootstrap: [AppComponent],
