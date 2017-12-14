@@ -12,8 +12,8 @@ mat-grid-tile{
 
 mat-progress-spinner{
     position: fixed;
-    top: 40%;
-    left: 50%;
+    top: 37%;
+    left: 43%;
     /*background-color: white;*/
     z-index: 100;
     color: white;
