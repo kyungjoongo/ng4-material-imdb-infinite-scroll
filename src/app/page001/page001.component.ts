@@ -38,13 +38,14 @@ export class Page001Component implements OnInit {
 
     constructor(private http: HttpService, public dialog: MatDialog
         , public snackBar: MatSnackBar
-        , private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
+        , private pageScrollService: PageScrollService
+        , @Inject(DOCUMENT) private document: any) {
+
+
         this.http.getProverbs().subscribe(response => {
             this.results = response;
         });
-
         this.numbers = this.oneTo20();
-
     }
 
     openSnackBar(message: string, action: string) {
