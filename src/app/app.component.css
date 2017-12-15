@@ -1,15 +1,15 @@
 
-
-.white001{
+.white001 {
     background-color: white;
     text-decoration: none;
 }
-.white001 a:hover{
+
+.white001 a:hover {
     color: #1c7430;
 
 }
 
-.white001 a:visited{
+.white001 a:visited {
     color: #1c7430;
 
 }
@@ -21,10 +21,12 @@
     border-bottom-width: 0px;
     color: #1c7430;
 }
-.navbar-default .navbar-nav{
+
+.navbar-default .navbar-nav {
     background-color: #FFFFFF;
 }
-.navbar-default .navbar-nav>li>a {
+
+.navbar-default .navbar-nav > li > a {
     color: #323232;
     background-color: #FFFFFF;
     text-transform: uppercase;
@@ -32,18 +34,29 @@
     letter-spacing: 1px;
 }
 
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
     color: #50A0FF;
     background-color: white;
 }
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus {
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
     color: #3b8dff;
     background-color: #000000;
 }
+
 .navbar-default .navbar-nav li .active {
     background-color: red !important;
+}
+
+.fab-button-row {
+    position: fixed;
+    top: 90%;
+    right: 5%;
+    /*background-color: white;*/
+    z-index: 100;
+
 }
 

@@ -31,4 +31,15 @@ mat-progress-spinner {
 */
 
 
+.fab-button-row {
+    position: fixed;
+    top: 90%;
+    right: 5%;
+    /*background-color: white;*/
+    z-index: 100;
+
+}
+
+
+
 

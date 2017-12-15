@@ -3,6 +3,9 @@ import {HttpService} from '../services/http.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {DialogOverviewExampleDialog} from '../common/common.component';
 import {MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material';
+import {ViewChild, ElementRef} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {PageScrollConfig, PageScrollService, PageScrollInstance} from 'ngx-page-scroll';
 
 @Component({
     selector: 'app-page001',
@@ -10,6 +13,9 @@ import {MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material';
     styleUrls: ['./page001.component.css'],
 })
 export class Page001Component implements OnInit {
+    @ViewChild('container')
+    private container: ElementRef;
+
     color = 'warn';
     mode = 'indeterminate';
     value = 30;
@@ -31,7 +37,8 @@ export class Page001Component implements OnInit {
     }
 
     constructor(private http: HttpService, public dialog: MatDialog
-        , public snackBar: MatSnackBar) {
+        , public snackBar: MatSnackBar
+        , private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
         this.http.getProverbs().subscribe(response => {
             this.results = response;
         });
@@ -82,5 +89,10 @@ export class Page001Component implements OnInit {
 
     ngOnInit() {
     }
+
+    public goToHead2(): void {
+        let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#head2');
+        this.pageScrollService.start(pageScrollInstance);
+    };
 
 }

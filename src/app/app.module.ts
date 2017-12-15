@@ -15,17 +15,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {RouterModule,Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import { Page002Component } from './page002/page002.component';
 import { Page003Component } from './page003/page003.component';
 import {MatTabsModule} from '@angular/material/tabs';
-
-export const ROUTES: Routes = [
-    { path: '', component: Page001Component },
-    { path: 'page2', component: Page002Component },
-    { path: 'page3', component: Page003Component }
-];
-
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 @NgModule({
     declarations: [
@@ -35,7 +29,14 @@ export const ROUTES: Routes = [
     imports: [
         BrowserModule, HttpModule, HttpClientModule, MatButtonModule, MatDialogModule, BrowserAnimationsModule, NoopAnimationsModule
         , NgbModule.forRoot(), MatGridListModule, MatSnackBarModule, InfiniteScrollModule, MatProgressSpinnerModule
-        , RouterModule.forRoot(ROUTES), MatTabsModule
+        , RouterModule.forRoot([
+
+            { path: '', component: Page001Component },
+            { path: 'page2', component: Page002Component },
+            { path: 'page3', component: Page003Component }
+
+
+        ]), MatTabsModule, NgxPageScrollModule
     ],
     providers: [HttpService],
     bootstrap: [AppComponent],
