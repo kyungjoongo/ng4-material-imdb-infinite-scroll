@@ -1,13 +1,14 @@
 
-
-mat-header-cell{
-    color: black!important;
+mat-header-cell {
+    color: black !important;
     font-weight: bold;
+    font-size: 13pt;
 }
 
 [hidden] {
     display: none !important;
 }
+
 mat-progress-spinner {
     position: fixed;
     top: 37%;
@@ -16,4 +17,9 @@ mat-progress-spinner {
     z-index: 100;
 
 }
+
+.mat-cell:nth-child(1), .mat-header-cell:nth-child(1) {
+    flex: 0 0 9%;
+}
+
 

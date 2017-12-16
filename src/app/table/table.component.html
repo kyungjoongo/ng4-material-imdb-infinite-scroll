@@ -1,5 +1,4 @@
-<script src="table.component.ts"></script>
-<div class="example-container mat-elevation-z8">
+<div class="" id="head2">
     <mat-progress-spinner
         class="example-margin"
         [mode]="mode"
@@ -8,26 +7,27 @@
         [value]="value">
     </mat-progress-spinner>
     <div class="example-header">
-        <mat-form-field style="width: 1500px;">
+        <mat-form-field style="width: 100%;">
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
     </div>
     <mat-table #table [dataSource]="dataSource" class="example-table">
 
+        <mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: yellow;font-size: 14pt;"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-        <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+        <ng-container matColumnDef="id" style="width: 100px" >
+            <mat-header-cell  *matHeaderCellDef>#</mat-header-cell>
+            <mat-cell  *matCellDef="let row" >{{ row.id }}</mat-cell>
         </ng-container>
 
         <!-- Title Column -->
-        <ng-container matColumnDef="content">
+        <ng-container matColumnDef="content" style="width: 1400px;">
             <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{ row.content }}</mat-cell>
+            <mat-cell  *matCellDef="let row">{{ row.content }}</mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: yellow"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
     </mat-table>
 
     <!--<mat-paginator [length]="resultsLength" [pageSize]="30">

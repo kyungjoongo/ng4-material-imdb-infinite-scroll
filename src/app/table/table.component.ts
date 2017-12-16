@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Http} from '@angular/http';
@@ -10,6 +10,8 @@ import {catchError} from 'rxjs/operators/catchError';
 import {map} from 'rxjs/operators/map';
 import {startWith} from 'rxjs/operators/startWith';
 import {switchMap} from 'rxjs/operators/switchMap';
+import {PageScrollInstance, PageScrollService} from 'ngx-page-scroll';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
     selector: 'app-table',
@@ -38,7 +40,7 @@ export class TableComponent implements AfterViewInit {
         this.dataSource.filter = filterValue;
     }
 
-    constructor(private http: Http) {
+    constructor(private http: Http,  private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
 
         let url= 'http://35.201.153.132:3000/proverbJson';
 
@@ -57,6 +59,11 @@ export class TableComponent implements AfterViewInit {
     ngAfterViewInit() {
 
     }
+
+    goToHead2(): void {
+        let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#head2');
+        this.pageScrollService.start(pageScrollInstance);
+    };
 }
 
 /*
