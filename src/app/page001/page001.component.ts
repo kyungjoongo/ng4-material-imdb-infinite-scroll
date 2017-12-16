@@ -39,10 +39,9 @@ export class Page001Component implements OnInit {
         , private pageScrollService: PageScrollService
         , @Inject(DOCUMENT) private document: any) {
 
+        console.log("page0001------------------->");
 
-        this.http.getProverbs().subscribe(response => {
-            this.results = response;
-        });
+
         this.numbers = this.oneTo20();
     }
 

@@ -46,7 +46,9 @@ export class LoginComponent implements OnInit {
 
             this.responesResult = res;
 
-            console.log(res + '#####################');
+
+
+            console.log(JSON.stringify(res) + '<---------------------');
             //user data
             //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google)
 
@@ -67,7 +69,11 @@ export class LoginComponent implements OnInit {
 
              });*/
 
-        });
+        }, error2 =>{
+
+            console.log("애러다-->"+ error2);
+
+        } );
 
     }
 

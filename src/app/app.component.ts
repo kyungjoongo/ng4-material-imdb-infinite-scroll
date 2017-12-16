@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ViewChild, ElementRef} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {PageScrollConfig, PageScrollService, PageScrollInstance} from 'ngx-page-scroll';
@@ -11,13 +11,13 @@ import {Router} from '@angular/router';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     @ViewChild('container')
     private container: ElementRef;
     title = '고경준 천재님 먹는 것을 아끼면 성공한다';
     image: string = '';
-    name : string = '';
+    name: string = '';
 
     isLogined: boolean = false;
 
@@ -27,27 +27,31 @@ export class AppComponent {
         , public  router: Router
         , public snackBar: MatSnackBar) {
 
-        console.log('this.localstorageservice.get(\'sessionUsername\')-->' + this.localstorageservice.get('sessionUsername'));
-
-
     }
 
     ngOnInit() {
+
         this.router.events.subscribe(event => {
             if (event.constructor.name === 'NavigationEnd') {
-                console.log('this.localstorageservice.get(\'sessionUsername\')-->' + this.localstorageservice.get('sessionUsername'));
+                console.log('sessionUsername================>' + this.localstorageservice.get('sessionUsername'));
                 if (this.localstorageservice.get('sessionUsername') != null) {
+
+                    console.log('sessionUsername 세션이 존재합니다');
                     console.log('user connected ');
                     this.isLogined = true;
                     this.name = this.localstorageservice.get('sessionUsername');
                     this.image = this.localstorageservice.get('sessionUserImage');
+
+
                 } else {
+                    console.log('sessionUsername 세션이 존재하지 않아요T_T');
                     this.isLogined = false;
                     this.image = '';
                     this.name = '';
                 }
             }
         });
+
     }
 
     public goToHead() {

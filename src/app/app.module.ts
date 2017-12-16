@@ -38,9 +38,6 @@ let providers = {
     'google': {
         'clientId': '574875960059-mkh0uvtsbe200mtfs63b84kujj6tsj1v.apps.googleusercontent.com'
     },
-    'linkedin': {
-        'clientId': '78ita9h0pqx9nq'
-    },
     'facebook': {
         'clientId': '18980271336',
         'apiVersion': 'v2.5' //like v2.4
