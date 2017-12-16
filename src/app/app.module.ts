@@ -30,6 +30,7 @@ import {AuthGuard} from './guard/auth-guard.guard';
 import {LocalStorageModule} from 'angular-2-local-storage';
 import { Angular2SocialLoginModule } from "angular2-social-login";
 import { SignupComponent } from './signup/signup.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 let providers = {
     "google": {
@@ -65,7 +66,7 @@ let providers = {
         ]), MatTabsModule, NgxPageScrollModule, MatFormFieldModule, MatInputModule, FormsModule, LocalStorageModule.withConfig({
             prefix: 'kyungjoon-app',
             storageType: 'localStorage'
-        }), Angular2SocialLoginModule
+        }), Angular2SocialLoginModule, AngularFontAwesomeModule
 
 
     ],

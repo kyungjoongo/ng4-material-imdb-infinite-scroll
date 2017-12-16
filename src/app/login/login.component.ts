@@ -42,28 +42,30 @@ export class LoginComponent implements OnInit {
     responesResult: any;
 
     signInWithSocial(provider) {
-        this._auth.login(provider).map(response => response).subscribe(res=>{
+        this._auth.login(provider).map(response => response).subscribe(res => {
 
-            this.responesResult= res;
+            this.responesResult = res;
 
             console.log(res + '#####################');
             //user data
             //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google)
 
+
             this.localstorageservice.set('sessionUsername', this.responesResult.name);
             this.localstorageservice.set('sessionUserImage', this.responesResult.image);
             this.router.navigate(['/page1']);
 
-           /* this.router.navigate(['/dashboard'], {
-                queryParams: {
-                    'email': this.responesResult.email,
-                    'image': this.responesResult.image,
-                    'uid': this.responesResult.uid,
-                    'provider': this.responesResult.provider,
-                    'name': this.responesResult.name
-                }
 
-            });*/
+            /* this.router.navigate(['/dashboard'], {
+                 queryParams: {
+                     'email': this.responesResult.email,
+                     'image': this.responesResult.image,
+                     'uid': this.responesResult.uid,
+                     'provider': this.responesResult.provider,
+                     'name': this.responesResult.name
+                 }
+
+             });*/
 
         });
 

@@ -9,13 +9,27 @@
         </mat-form-field>
 
     </div>
-    <button mat-raised-button="" color="primary" (click)="clickedSubmit()" style="background-color: #ff5e0d"> logIn</button>
-    <button mat-raised-button="" color="primary" (click)="signInWithSocial('google')" style="background-color: red"> login with google</button>
-    <button mat-raised-button="" color="primary" (click)="signInWithSocial('facebook')" style="background-color: blue"> login with facebook</button>
-    <button mat-raised-button="" color="primary" (click)="signInWithSocial('linkedin')" style="background-color: #45e4ff"> login with linkedin</button>
-    <button mat-raised-button="" color="warn" (click)="logout2()" style="background-color: #2bcc12!important;"> logout2</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-grid-list cols="1" rowHeight="50px" style="margin: 0px; padding: 0px;" >
+        <mat-grid-tile>
+            <button mat-raised-button="" color="primary" (click)="clickedSubmit()" style="background-color: #ff5e0d; width: 500px"> logIn</button><br/>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button="" color="primary" (click)="signInWithSocial('google')" style="background-color: red; width: 500px"> <i class="fa fa-google-plus  " aria-hidden="true"></i>&nbsp; Login With Google+ </button><br/>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button="" color="primary" (click)="signInWithSocial('facebook')" style="background-color: blue; width: 500px"> <i class="fa fa-facebook " aria-hidden="true"></i>&nbsp; Login With Facebook</button><br/>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button="" color="warn" (click)="logout2()" style="background-color: #2bcc12!important; width: 248px;"> logout2</button>&nbsp;
+            <button mat-raised-button="" color="warn" (click)="signUp()" style="background-color: #e70aca!important; width: 248px;"> signUp</button>
+        </mat-grid-tile>
 
-    <button mat-raised-button="" color="warn" (click)="signUp()" style="background-color: #2bcc12!important;"> signUp</button>
+    </mat-grid-list>
+
+
+
+    <!--<button mat-raised-button="" color="primary" (click)="signInWithSocial('linkedin')" style="background-color: #45e4ff"> login with linkedin</button>-->
+
 <!--
     <button mat-raised-button="" color="warn" (click)="logout()"> logout</button>-->
 

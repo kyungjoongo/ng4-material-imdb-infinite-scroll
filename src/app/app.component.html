@@ -24,12 +24,12 @@
             </li>
 
             <li class="nav-item" style="text-align: right" *ngIf="image">
-                <img [src]="image" style="width: 30px;height: 30px"/>
+                <a class="nav-link"> <img [src]="image" style="width: 30px;height: 30px"/></a>
             </li>
 
-            <li class="nav-item" style="text-align: right" *ngIf="name">
-                {{name}}
-            </li>
+            <div class="" style="text-align: right" *ngIf="name ">
+                        {{name}}
+            </div>
 
         </ul>
     </div>

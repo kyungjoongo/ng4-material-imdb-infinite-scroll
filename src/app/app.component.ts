@@ -63,6 +63,8 @@ export class AppComponent {
     logout() {
         this.localstorageservice.clearAll();
         this.openSnackBar('로그아웃되었습니다', '');
+
+        this.router.navigate(['/']);
     }
 
     openSnackBar(message: string, action: string) {

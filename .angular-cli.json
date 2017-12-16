@@ -60,5 +60,9 @@
             "host": "0.0.0.0",
             "port": 4200
         }
-    }
+    },
+    "styles": [
+        "styles.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
+    ]
 }
