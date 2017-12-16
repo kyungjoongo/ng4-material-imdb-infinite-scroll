@@ -1,7 +1,25 @@
-<p>
-  page003 works!SADFLKASDLFKLSDKFLSDKAFK<br/>
-    page003 works!SADFLKASDLFKLSDKFLSDKAFK<br/>
-    page003 works!SADFLKASDLFKLSDKFLSDKAFK<br/>
-    page003 works!SADFLKASDLFKLSDKFLSDKAFK<br/>page003 works!SADFLKASDLFKLSDKFLSDKAFK<br/>
+<div id="head2">
+</div>
+    <mat-progress-spinner
+        class="example-margin"
+        [mode]="mode"
+        [color]="color"
+        [hidden]="!showSpinner"
+        [value]="value">
+    </mat-progress-spinner>
+    <div class="search-results"
+         infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="50"
+         (scrolled)="onScroll()">
 
-</p>
+        <mat-grid-list cols="3" rowHeight="2:1">
+
+            <mat-grid-tile *ngFor="let item of results; let i =index"
+            >
+                <img [src]="item.webformatURL" style="width: 200px;height: 300px"/><br/>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </div>
+

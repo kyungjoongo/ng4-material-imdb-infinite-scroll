@@ -41,14 +41,14 @@ import {LocalStorageModule} from 'angular-2-local-storage';
 
             {path: '', component: LoginComponent},
             {path: 'page1', component: Page001Component, canActivate: [AuthGuard]},
-            {path: 'page2', component: Page002Component, canActivate:[AuthGuard]},
-            {path: 'page3', component: Page003Component},
+            {path: 'page2', component: Page002Component, canActivate: [AuthGuard]},
+            {path: 'page3', component: Page003Component, canActivate: [AuthGuard]},
             {path: 'logout', component: LoginComponent},
             {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
 
         ]), MatTabsModule, NgxPageScrollModule, MatFormFieldModule, MatInputModule, FormsModule, LocalStorageModule.withConfig({
-            prefix : 'kyungjoon-app',
-            storageType : 'localStorage'
+            prefix: 'kyungjoon-app',
+            storageType: 'localStorage'
         })
     ],
     providers: [HttpService, UserService, AuthGuard],

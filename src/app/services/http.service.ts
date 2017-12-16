@@ -32,4 +32,22 @@ export class HttpService {
         });
     }
 
+    plxabayUri ='https://pixabay.com/api/?key=7259916-f3ce173538d4a7f0dee3e23a0&image_type=photo&pretty=true&page='
+
+    getImages(page, pageSize:number=10) {
+
+        let _category = [
+            'fashion', 'nature', 'backgrounds', 'science', 'education', 'people', 'feelings'
+            , 'religion', 'health', 'places', 'animals'
+            , 'industry', 'food', 'computer', 'sports', 'transportation'
+            , 'travel', 'buildings', 'business', 'music'
+        ];
+        var randCategory= _category[Math.floor(Math.random() * _category.length)];
+
+        return this.http.get(this.plxabayUri + page + "&category="+ randCategory+ "&per_page="+ pageSize).map(res => {
+            return res.json();
+        }, err=>{
+            alert(err);
+        });
+    }
 }
