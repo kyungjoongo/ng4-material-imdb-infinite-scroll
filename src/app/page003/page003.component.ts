@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {HttpService} from '../services/http.service';
 import {PageScrollInstance, PageScrollService} from 'ngx-page-scroll';
 import {DOCUMENT} from '@angular/common';
@@ -8,17 +8,21 @@ import {DOCUMENT} from '@angular/common';
     templateUrl: './page003.component.html',
     styleUrls: ['./page003.component.css']
 })
-export class Page003Component implements OnInit {
+export class Page003Component  {
+    page = 1;
+    results = [];
+    pageSize = 20;
+    color = 'warn';
+    mode = 'indeterminate';
+    value = 30;
+    showSpinner = false;
+    results = [];
 
     constructor(public  httpService: HttpService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
 
         this.getImages();
 
     }
-
-    page = 1;
-    results = [];
-    pageSize = 20;
 
     getImages() {
         this.showSpinner = true;
@@ -31,13 +35,6 @@ export class Page003Component implements OnInit {
             },1000);
         });
     }
-
-    color = 'warn';
-    mode = 'indeterminate';
-    value = 30;
-    showSpinner = false;
-    results = [];
-    numbers = [];
 
 
     onScroll() {
@@ -58,9 +55,6 @@ export class Page003Component implements OnInit {
 
         });
 
-    }
-
-    ngOnInit() {
     }
 
     goToHead2(): void {
