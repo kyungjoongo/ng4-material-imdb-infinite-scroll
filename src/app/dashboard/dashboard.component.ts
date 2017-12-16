@@ -10,23 +10,27 @@ import {UserModel} from '../model/model';
 export class DashboardComponent implements OnInit {
 
     image: string = '';
-    email : string = '';
+    email: string = '';
+    uid= '';
+    provider= '';
+    name= '';
+
     constructor(public activatedroute: ActivatedRoute
         , public router: Router) {
 
-        activatedroute.queryParams.subscribe(params=>{
+        activatedroute.queryParams.subscribe(params => {
 
-            let email = params['email'];
-            let image = params['image'];
+            this.email = params['email'];
+            this.image = params['image'];
+            this.uid = params['uid'];
+            this.provider = params['provider'];
+            this.name = params['name'];
 
-            this.image = image;
-            this.email = email;
             /*alert(image);
             alert(email);*/
 
 
-
-        })
+        });
 
     }
 

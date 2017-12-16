@@ -35,7 +35,7 @@ let providers = {
         "clientId": "574875960059-mkh0uvtsbe200mtfs63b84kujj6tsj1v.apps.googleusercontent.com"
     },
     "linkedin": {
-        "clientId": "LINKEDIN_CLIENT_ID"
+        "clientId": "78ita9h0pqx9nq"
     },
     "facebook": {
         "clientId": "18980271336",

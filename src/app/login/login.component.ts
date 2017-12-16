@@ -4,7 +4,9 @@ import {Router} from '@angular/router';
 import {LocalStorageService} from 'angular-2-local-storage';
 import {AuthService} from 'angular2-social-login';
 import {UserModel} from '../model/model';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @Component({
@@ -22,6 +24,8 @@ export class LoginComponent implements OnInit {
         , public localstorageservice: LocalStorageService
         , public _auth: AuthService) {
 
+        this.userModel = new UserModel();
+
 
     }
 
@@ -37,24 +41,33 @@ export class LoginComponent implements OnInit {
 
     responesResult: any;
 
-    signInWithSocial(provider ) {
-        this._auth.login(provider).subscribe((result) => {
-                this.responesResult = result;
+    signInWithSocial(provider) {
+        this._auth.login(provider).map(response => response).subscribe(res=>{
 
-                console.log(result+ "#####################");
+            this.responesResult= res;
 
-                console.log('################===>' + this.responesResult.email);
-                this.router.navigate(['/dashboard'], {queryParams: {'email': this.responesResult.email, 'image': this.responesResult.image}});
-                //user data
-                //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google)
-            }
-        );
+            console.log(res + '#####################');
+            //user data
+            //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google)
+            this.router.navigate(['/dashboard'], {
+                queryParams: {
+                    'email': this.responesResult.email,
+                    'image': this.responesResult.image,
+                    'uid': this.responesResult.uid,
+                    'provider': this.responesResult.provider,
+                    'name': this.responesResult.name
+                }
+
+            });
+
+        });
+
     }
 
     logout2() {
         this._auth.logout().subscribe(response => {
             //return a boolean value.}
-            console.log(response);
+            alert(response);
         });
     }
 
