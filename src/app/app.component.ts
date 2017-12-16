@@ -16,6 +16,8 @@ export class AppComponent {
     @ViewChild('container')
     private container: ElementRef;
     title = '고경준 천재님 먹는 것을 아끼면 성공한다';
+    image: string = '';
+    name : string = '';
 
     isLogined: boolean = false;
 
@@ -37,8 +39,12 @@ export class AppComponent {
                 if (this.localstorageservice.get('sessionUsername') != null) {
                     console.log('user connected ');
                     this.isLogined = true;
+                    this.name = this.localstorageservice.get('sessionUsername');
+                    this.image = this.localstorageservice.get('sessionUserImage');
                 } else {
                     this.isLogined = false;
+                    this.image = '';
+                    this.name = '';
                 }
             }
         });
@@ -55,7 +61,7 @@ export class AppComponent {
     };
 
     logout() {
-        this.localstorageservice.remove('sessionUsername');
+        this.localstorageservice.clearAll();
         this.openSnackBar('로그아웃되었습니다', '');
     }
 

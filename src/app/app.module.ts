@@ -29,6 +29,7 @@ import {UserService} from './services/user.service';
 import {AuthGuard} from './guard/auth-guard.guard';
 import {LocalStorageModule} from 'angular-2-local-storage';
 import { Angular2SocialLoginModule } from "angular2-social-login";
+import { SignupComponent } from './signup/signup.component';
 
 let providers = {
     "google": {
@@ -47,7 +48,7 @@ let providers = {
 @NgModule({
     declarations: [
         AppComponent,
-        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component, LoginComponent, DashboardComponent
+        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component, LoginComponent, DashboardComponent, SignupComponent
     ],
     imports: [
         BrowserModule, HttpModule, HttpClientModule, MatButtonModule, MatDialogModule, BrowserAnimationsModule, NoopAnimationsModule

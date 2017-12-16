@@ -13,7 +13,7 @@
      [infiniteScrollThrottle]="50"
      (scrolled)="onScroll()">
 
-    <mat-grid-list cols="2" rowHeight="1.4:1">
+    <mat-grid-list cols="3" rowHeight="1.4:1">
         <mat-grid-tile *ngFor="let item of results; let i =index"
         >
             <img [src]="item.webformatURL" style=""/><br/>

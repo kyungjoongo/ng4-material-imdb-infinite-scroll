@@ -49,7 +49,12 @@ export class LoginComponent implements OnInit {
             console.log(res + '#####################');
             //user data
             //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google)
-            this.router.navigate(['/dashboard'], {
+
+            this.localstorageservice.set('sessionUsername', this.responesResult.name);
+            this.localstorageservice.set('sessionUserImage', this.responesResult.image);
+            this.router.navigate(['/page1']);
+
+           /* this.router.navigate(['/dashboard'], {
                 queryParams: {
                     'email': this.responesResult.email,
                     'image': this.responesResult.image,
@@ -58,7 +63,7 @@ export class LoginComponent implements OnInit {
                     'name': this.responesResult.name
                 }
 
-            });
+            });*/
 
         });
 
@@ -92,7 +97,6 @@ export class LoginComponent implements OnInit {
             /*this.openSnackBar('맞았습니다', '');*/
             this.message = 'id/password ok!!';
             this.localstorageservice.set('sessionUsername', this.username);
-
             this.router.navigate(['/page1']);
         } else {
             this.message = 'id/password틀렸어용';
