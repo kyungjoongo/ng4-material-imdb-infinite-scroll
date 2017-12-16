@@ -16,7 +16,6 @@ export class Page003Component  {
     mode = 'indeterminate';
     value = 30;
     showSpinner = false;
-    results = [];
 
     constructor(public  httpService: HttpService, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
 

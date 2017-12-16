@@ -28,6 +28,21 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserService} from './services/user.service';
 import {AuthGuard} from './guard/auth-guard.guard';
 import {LocalStorageModule} from 'angular-2-local-storage';
+import { Angular2SocialLoginModule } from "angular2-social-login";
+
+let providers = {
+    "google": {
+        "clientId": "574875960059-mkh0uvtsbe200mtfs63b84kujj6tsj1v.apps.googleusercontent.com"
+    },
+    "linkedin": {
+        "clientId": "LINKEDIN_CLIENT_ID"
+    },
+    "facebook": {
+        "clientId": "18980271336",
+        "apiVersion": "v2.5" //like v2.4
+    }
+};
+
 
 @NgModule({
     declarations: [
@@ -49,7 +64,9 @@ import {LocalStorageModule} from 'angular-2-local-storage';
         ]), MatTabsModule, NgxPageScrollModule, MatFormFieldModule, MatInputModule, FormsModule, LocalStorageModule.withConfig({
             prefix: 'kyungjoon-app',
             storageType: 'localStorage'
-        })
+        }), Angular2SocialLoginModule
+
+
     ],
     providers: [HttpService, UserService, AuthGuard],
     bootstrap: [AppComponent],
@@ -57,3 +74,5 @@ import {LocalStorageModule} from 'angular-2-local-storage';
 })
 export class AppModule {
 }
+
+Angular2SocialLoginModule.loadProvidersScripts(providers);

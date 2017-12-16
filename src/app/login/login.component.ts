@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
-import { LocalStorageService } from 'angular-2-local-storage';
+import {LocalStorageService} from 'angular-2-local-storage';
+import {AuthService} from 'angular2-social-login';
+import {UserModel} from '../model/model';
+import {Observable} from 'rxjs/Observable';
+
 
 @Component({
     selector: 'app-login',
@@ -15,18 +19,56 @@ export class LoginComponent implements OnInit {
 
     constructor(public snackBar: MatSnackBar
         , public router: Router
-        ,public localstorageservice  :LocalStorageService
-    ) {
+        , public localstorageservice: LocalStorageService
+        , public _auth: AuthService) {
+
+
     }
 
+    email: string = '';
+    idToken: string = '';
+    image = '';
+    _provider = '';
+    token = '';
+    uid = '';
+    name = '';
+    public userModel: UserModel;
+
+
+    responesResult: any;
+
+    signInWithSocial(provider ) {
+        this._auth.login(provider).subscribe((result) => {
+                this.responesResult = result;
+
+                console.log(result+ "#####################");
+
+                console.log('################===>' + this.responesResult.email);
+                this.router.navigate(['/dashboard'], {queryParams: {'email': this.responesResult.email, 'image': this.responesResult.image}});
+                //user data
+                //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google)
+            }
+        );
+    }
+
+    logout2() {
+        this._auth.logout().subscribe(response => {
+            //return a boolean value.}
+            console.log(response);
+        });
+    }
+
+
     ngOnInit() {
+
+        //  AppGlobals.GOOGLE_CLIENT_ID = '574875960059-mkh0uvtsbe200mtfs63b84kujj6tsj1v.apps.googleusercontent.com';
     }
 
     message: String;
 
-    logout(){
+    logout() {
 
-        this.localstorageservice.remove("sessionUsername");
+        this.localstorageservice.remove('sessionUsername');
 
         alert('세션해제됨');
     }
@@ -36,9 +78,9 @@ export class LoginComponent implements OnInit {
         if (this.username == 'lance77' && this.password == '1114') {
             /*this.openSnackBar('맞았습니다', '');*/
             this.message = 'id/password ok!!';
-            this.localstorageservice.set("sessionUsername", this.username);
+            this.localstorageservice.set('sessionUsername', this.username);
 
-            this.router.navigate(['/page1'])
+            this.router.navigate(['/page1']);
         } else {
             this.message = 'id/password틀렸어용';
             return false;
@@ -46,6 +88,13 @@ export class LoginComponent implements OnInit {
 
     }
 
+    /*loginWithGoogle(){
+        this.googleAuthSvc.authenticateUser(response=>{
+            console.log('############');
+            console.log(response+ "sdlkfldk########")
+        })
+    }
+*/
     openSnackBar(message: string, action: string) {
         this.snackBar.open(message, action, {
             panelClass: ['success-snackbar'],

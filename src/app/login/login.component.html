@@ -10,6 +10,8 @@
 
     </div>
     <button mat-raised-button="" color="primary" (click)="clickedSubmit()" style="background-color: #ff5e0d"> logIn</button>
+    <button mat-raised-button="" color="primary" (click)="signInWithSocial('google')" style="background-color: red"> login with google</button>
+    <button mat-raised-button="" color="primary" (click)="signInWithSocial('facebook')" style="background-color: blue"> login with facebook</button>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <button mat-raised-button="" color="warn" (click)="signUp()" style="background-color: #2bcc12!important;"> signUp</button>
 <!--
@@ -20,5 +22,18 @@
     </div>
     <div class="message001">
         {{message}}
+    </div>
+    <div class="userInfo">
+
+        {{email}}<br/>
+        <!--{{idToken}}<br/>-->
+
+        {{name}}<br/>
+        <img *ngIf="image" [src]="image"><br/>
+        {{_provider}}<br/>
+        {{token}}<br/>
+        {{uid }}<br/>
+
+
     </div>
 </div>

@@ -1,11 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from '../services/http.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {DialogOverviewExampleDialog} from '../common/common.component';
-import {MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material';
-import {ViewChild, ElementRef} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
-import {PageScrollConfig, PageScrollService, PageScrollInstance} from 'ngx-page-scroll';
+import {PageScrollInstance, PageScrollService} from 'ngx-page-scroll';
 
 @Component({
     selector: 'app-page001',
