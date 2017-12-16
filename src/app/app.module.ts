@@ -28,20 +28,22 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserService} from './services/user.service';
 import {AuthGuard} from './guard/auth-guard.guard';
 import {LocalStorageModule} from 'angular-2-local-storage';
-import { Angular2SocialLoginModule } from "angular2-social-login";
-import { SignupComponent } from './signup/signup.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {Angular2SocialLoginModule} from 'angular2-social-login';
+import {SignupComponent} from './signup/signup.component';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {TableComponent} from './table/table.component';
+import {MatTableModule} from '@angular/material/table';
 
 let providers = {
-    "google": {
-        "clientId": "574875960059-mkh0uvtsbe200mtfs63b84kujj6tsj1v.apps.googleusercontent.com"
+    'google': {
+        'clientId': '574875960059-mkh0uvtsbe200mtfs63b84kujj6tsj1v.apps.googleusercontent.com'
     },
-    "linkedin": {
-        "clientId": "78ita9h0pqx9nq"
+    'linkedin': {
+        'clientId': '78ita9h0pqx9nq'
     },
-    "facebook": {
-        "clientId": "18980271336",
-        "apiVersion": "v2.5" //like v2.4
+    'facebook': {
+        'clientId': '18980271336',
+        'apiVersion': 'v2.5' //like v2.4
     }
 };
 
@@ -49,24 +51,27 @@ let providers = {
 @NgModule({
     declarations: [
         AppComponent,
-        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component, LoginComponent, DashboardComponent, SignupComponent
+        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component, LoginComponent, DashboardComponent, SignupComponent, TableComponent
     ],
     imports: [
         BrowserModule, HttpModule, HttpClientModule, MatButtonModule, MatDialogModule, BrowserAnimationsModule, NoopAnimationsModule
         , NgbModule.forRoot(), MatGridListModule, MatSnackBarModule, InfiniteScrollModule, MatProgressSpinnerModule
-        , RouterModule.forRoot([
+        , LocalStorageModule.withConfig({
+            prefix: 'kyungjoon-app',
+            storageType: 'localStorage'
+        }),
+        RouterModule.forRoot([
 
             {path: '', component: LoginComponent},
             {path: 'page1', component: Page001Component, canActivate: [AuthGuard]},
             {path: 'page2', component: Page002Component, canActivate: [AuthGuard]},
             {path: 'page3', component: Page003Component, canActivate: [AuthGuard]},
+            {path: 'table', component: TableComponent, canActivate: [AuthGuard]},
             {path: 'logout', component: LoginComponent},
             {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
 
-        ]), MatTabsModule, NgxPageScrollModule, MatFormFieldModule, MatInputModule, FormsModule, LocalStorageModule.withConfig({
-            prefix: 'kyungjoon-app',
-            storageType: 'localStorage'
-        }), Angular2SocialLoginModule, AngularFontAwesomeModule
+        ]), MatTabsModule, NgxPageScrollModule, MatFormFieldModule, MatInputModule
+        , FormsModule, Angular2SocialLoginModule, AngularFontAwesomeModule, MatTableModule
 
 
     ],
