@@ -16,29 +16,42 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {RouterModule} from '@angular/router';
-import { Page002Component } from './page002/page002.component';
-import { Page003Component } from './page003/page003.component';
+import {Page002Component} from './page002/page002.component';
+import {Page003Component} from './page003/page003.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import {LoginComponent} from './login/login.component';
+import {MatFormFieldModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {UserService} from './services/user.service';
+import {AuthGuard} from './guard/auth-guard.guard';
+import {LocalStorageModule} from 'angular-2-local-storage';
 
 @NgModule({
     declarations: [
         AppComponent,
-        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component
+        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component, LoginComponent, DashboardComponent
     ],
     imports: [
         BrowserModule, HttpModule, HttpClientModule, MatButtonModule, MatDialogModule, BrowserAnimationsModule, NoopAnimationsModule
         , NgbModule.forRoot(), MatGridListModule, MatSnackBarModule, InfiniteScrollModule, MatProgressSpinnerModule
         , RouterModule.forRoot([
 
-            { path: '', component: Page001Component },
-            { path: 'page2', component: Page002Component },
-            { path: 'page3', component: Page003Component }
+            {path: '', component: LoginComponent},
+            {path: 'page1', component: Page001Component, canActivate: [AuthGuard]},
+            {path: 'page2', component: Page002Component, canActivate:[AuthGuard]},
+            {path: 'page3', component: Page003Component},
+            {path: 'logout', component: LoginComponent},
+            {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
 
-
-        ]), MatTabsModule, NgxPageScrollModule
+        ]), MatTabsModule, NgxPageScrollModule, MatFormFieldModule, MatInputModule, FormsModule, LocalStorageModule.withConfig({
+            prefix : 'kyungjoon-app',
+            storageType : 'localStorage'
+        })
     ],
-    providers: [HttpService],
+    providers: [HttpService, UserService, AuthGuard],
     bootstrap: [AppComponent],
     entryComponents: [DialogOverviewExampleDialog]
 })

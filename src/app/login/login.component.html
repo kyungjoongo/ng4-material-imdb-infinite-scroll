@@ -1,0 +1,24 @@
+<div class="container" id="head2">
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="username" [(ngModel)]='username' value="lance77"  name="username"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="password" [(ngModel)]='password' name="password" value="1114"/>
+        </mat-form-field>
+
+    </div>
+    <button mat-raised-button="" color="primary" (click)="clickedSubmit()"> submit</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button="" color="warn" (click)="signUp()"> signUp</button>
+<!--
+    <button mat-raised-button="" color="warn" (click)="logout()"> logout</button>-->
+
+    <div>
+        <br/>
+    </div>
+    <div class="message001">
+        {{message}}
+    </div>
+</div>

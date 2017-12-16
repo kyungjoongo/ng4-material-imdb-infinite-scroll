@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 
 body{
@@ -9,10 +9,15 @@ body{
 
 
 snack-bar-container.success-snackbar {
-    background-color: #ccb523;
+    background-color: #2bcc12;
 }
 .success-snackbar .mat-simple-snackbar {
     color: #0f4c29;
+}
+
+at-grid-tile {
+    background-color: white;
+    color: black;
 }
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from '../services/http.service';
 
 @Component({
   selector: 'app-page002',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page002Component implements OnInit {
 
-  constructor() { }
+  constructor(public httpService : HttpService) {
+      this.getUserList();
+
+  }
 
   ngOnInit() {
+  }
+
+  page = 1;
+  results = [];
+
+  getUserList(){
+
+      this.httpService.getUserList(this.page).subscribe(response=>{
+
+          console.log(response.results);
+          this.results = response.results;
+      })
+
   }
 
 }
