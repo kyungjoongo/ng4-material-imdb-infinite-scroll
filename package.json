@@ -23,18 +23,26 @@
         "@angular/platform-browser": "^5.0.0",
         "@angular/platform-browser-dynamic": "^5.0.0",
         "@angular/router": "^5.1.1",
+        "@covalent/core": "^1.0.0-rc.1",
+        "@covalent/dynamic-forms": "^1.0.0-rc.1",
+        "@covalent/highlight": "^1.0.0-rc.1",
+        "@covalent/http": "^1.0.0-rc.1",
+        "@covalent/markdown": "^1.0.0-rc.1",
         "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.8",
         "angular-2-local-storage": "^1.0.1",
         "angular-font-awesome": "^3.0.3",
         "angular2-google-login": "^1.0.9",
         "angular2-infinite-scroll": "^0.3.5",
         "angular2-social-login": "^3.1.1",
+        "angularfire2": "^5.0.0-rc.4",
         "core-js": "^2.4.1",
+        "firebase": "^4.8.0",
         "font-awesome": "^4.7.0",
         "hammerjs": "^2.0.8",
         "ng2-social-login": "^2.0.5",
         "ngx-infinite-scroll": "^0.7.2",
         "ngx-page-scroll": "^4.0.2",
+        "primeng": "^5.0.2",
         "rxjs": "^5.5.2",
         "zone.js": "^0.8.14"
     },
@@ -58,5 +66,13 @@
         "ts-node": "~3.2.0",
         "tslint": "~5.7.0",
         "typescript": "~2.4.2"
-    }
+    },
+    "styles": [
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css"
+    ]
+
+
+
 }

@@ -1,7 +1,39 @@
-<p>
-    {{email}}<br/>
-    {{uid}}<br/>
-    {{provider}}<br/>
-    {{name}} <br/>
-    <img [src]="image"/>
-</p>
+<div>
+    <mat-progress-spinner
+        class="example-margin"
+        [mode]="mode"
+        [color]="color"
+        [hidden]="!showSpinner"
+        [value]="value">
+    </mat-progress-spinner>
+
+    <mat-form-field style="width: 100%">
+        <input (keydown)="clickEnter($event)" style="width: 100%" matInput placeholder="content" [(ngModel)]='content'
+               value="lance77" name="username"/>
+
+    </mat-form-field>
+    <br/>
+    <mat-form-field style="width: 100%">
+        <input (keydown)="clickEnter($event)" style="width: 100%" matInput placeholder="username" [(ngModel)]='username'
+               value="lance77" name="username"/>
+    </mat-form-field>
+    <br/>
+    <button mat-raised-button="" color="primary" (click)="addTodo()">add</button>
+
+    <table class="table-active table-responsive">
+        <tr *ngFor="let todo of (todos$ | async)" [class.done]="todo.done">
+            <td (click)="openDialog(todo)" width="70%">{{ todo.content }}</td>
+
+            <td width="20%">
+                {{todo.username}}
+            </td>
+            <td width="10%">
+                <button mat-raised-button="" color="primary" (click)="deleteTodo(todo)" style="background-color: green">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </td>
+
+        </tr>
+    </table>
+
+</div>

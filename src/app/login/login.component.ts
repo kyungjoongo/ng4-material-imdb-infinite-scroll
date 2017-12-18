@@ -1,33 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, HostBinding} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {LocalStorageService} from 'angular-2-local-storage';
 import {AuthService} from 'angular2-social-login';
 import {UserModel} from '../model/model';
-import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
+import {Observable} from 'rxjs/Observable';
+import {AngularFireAuth} from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import {AngularFirestore} from 'angularfire2/firestore';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
+
 })
 export class LoginComponent implements OnInit {
 
     username: string = 'lance77';
     password: string = '1114';
-
-    constructor(public snackBar: MatSnackBar
-        , public router: Router
-        , public localstorageservice: LocalStorageService
-        , public _auth: AuthService) {
-
-        this.userModel = new UserModel();
-
-
-    }
 
     email: string = '';
     idToken: string = '';
@@ -37,43 +28,39 @@ export class LoginComponent implements OnInit {
     uid = '';
     name = '';
     public userModel: UserModel;
+    items: Observable<any[]>;
+
+
+    constructor(public snackBar: MatSnackBar
+        , public router: Router
+        , public localstorageservice: LocalStorageService
+        , public afAuth: AngularFireAuth
+                ,public db : AngularFirestore
+        , public _auth: AuthService) {
+
+
+    }
+
+
+
+
 
 
     responesResult: any;
 
     signInWithSocial(provider) {
         this._auth.login(provider).map(response => response).subscribe(res => {
-
             this.responesResult = res;
-
-
-
             console.log(JSON.stringify(res) + '<---------------------');
             //user data
             //name, image, uid, provider, uid, email, token (accessToken for Facebook & google, no token for linkedIn), idToken(only for google)
-
-
             this.localstorageservice.set('sessionUsername', this.responesResult.name);
             this.localstorageservice.set('sessionUserImage', this.responesResult.image);
             this.router.navigate(['/page1']);
+        }, error2 => {
 
-
-            /* this.router.navigate(['/dashboard'], {
-                 queryParams: {
-                     'email': this.responesResult.email,
-                     'image': this.responesResult.image,
-                     'uid': this.responesResult.uid,
-                     'provider': this.responesResult.provider,
-                     'name': this.responesResult.name
-                 }
-
-             });*/
-
-        }, error2 =>{
-
-            console.log("애러다-->"+ error2);
-
-        } );
+            console.log('애러다-->' + error2);
+        });
 
     }
 

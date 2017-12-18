@@ -1,0 +1,9 @@
+<td-chips [chipAddition]="chipAddition"
+          [chipRemoval]="chipRemoval"
+          [items]="filteredStrings"
+          [(ngModel)]="stringsModel"
+          placeholder="Enter autocomplete strings"
+          [disabled]="disabled"
+          (inputChange)="filterStrings($event)"
+          requireMatch>
+</td-chips>

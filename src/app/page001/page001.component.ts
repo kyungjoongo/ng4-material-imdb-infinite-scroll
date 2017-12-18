@@ -4,6 +4,7 @@ import {MatDialog, MatSnackBar} from '@angular/material';
 import {DialogOverviewExampleDialog} from '../common/common.component';
 import {DOCUMENT} from '@angular/common';
 import {PageScrollInstance, PageScrollService} from 'ngx-page-scroll';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: 'app-page001',
@@ -34,6 +35,7 @@ export class Page001Component implements OnInit {
         }, 1000);
     }
 
+
     constructor(private http: HttpService, public dialog: MatDialog
         , public snackBar: MatSnackBar
         , private pageScrollService: PageScrollService
@@ -43,6 +45,8 @@ export class Page001Component implements OnInit {
 
 
         this.numbers = this.oneTo20();
+
+
     }
 
     openSnackBar(message: string, action: string) {

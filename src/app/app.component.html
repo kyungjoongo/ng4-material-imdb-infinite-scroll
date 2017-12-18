@@ -1,12 +1,31 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<p-sidebar [(visible)]="display" style="">
     <a class="navbar-brand" href="#" routerLink="/">MOIVE DB</a>
     <div class="navbar-default" id="navbarNav">
+        <hr style="color: black; border: 1px solid; width: 100%"/>
         <ul class="navbar-nav">
-            <!--<li class="nav-item ">
-                <a class="nav-link" href="#" routerLink="/">Home </a>
-            </li>-->
+
+
+
+            <li class="nav-item" style="text-align: left" *ngIf="image">
+                <a class="nav-link"> <img [src]="image" style="width: 30px;height: 30px"/></a>
+            </li>
+
+            <div class="" style="text-align: left" *ngIf="name ">
+                {{name}}
+            </div>
+            <li class="nav-item" style="text-align: left" *ngIf="isLogined">
+                <a class="nav-link" href="#" (click)="logout()" routerLink="/logout" style="color: red">logout</a>
+            </li>
+            <hr style="color: black; border: 1px solid; width: 100%"/>
+
+
+            <li class="nav-item ">
+                <a class="nav-link" href="#" routerLink="/">login </a>
+            </li>
+
+
             <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/page1">page001__ksjdfksdjf</a>
+                <a class="nav-link" href="#" routerLink="/page1">페이지001</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" routerLink="/page2">page002</a>
@@ -21,24 +40,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" routerLink="/table">table</a>
             </li>
-
-
-
-            <li class="nav-item" style="text-align: right" *ngIf="isLogined">
-                <a class="nav-link" href="#" (click)="logout()" routerLink="/logout" style="color: red">logout</a>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="/chips">chips</a>
             </li>
 
-            <li class="nav-item" style="text-align: right" *ngIf="image">
-                <a class="nav-link"> <img [src]="image" style="width: 30px;height: 30px"/></a>
-            </li>
-
-            <div class="" style="text-align: right" *ngIf="name ">
-                        {{name}}
-            </div>
 
         </ul>
     </div>
-</nav>
+
+</p-sidebar>
+<button pButton type="button" (click)="display = true" label=" " class="ui-button-success">&nbsp;<i class="fa fa-bars" aria-hidden="true"></i>&nbsp; menu&nbsp;&nbsp; </button>
+
 <div class="fab-button-row" style="text-align: right">
     <button mat-fab color="accent" (click)="goToHead()">TOP</button>
 </div>

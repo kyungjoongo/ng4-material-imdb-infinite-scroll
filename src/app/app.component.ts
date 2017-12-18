@@ -27,10 +27,11 @@ export class AppComponent implements OnInit {
         , public  router: Router
         , public snackBar: MatSnackBar) {
 
+
+
     }
 
     ngOnInit() {
-
         this.router.events.subscribe(event => {
             if (event.constructor.name === 'NavigationEnd') {
                 console.log('sessionUsername================>' + this.localstorageservice.get('sessionUsername'));
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit {
                 }
             }
         });
+
 
     }
 
