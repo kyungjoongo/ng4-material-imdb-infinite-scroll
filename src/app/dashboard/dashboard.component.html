@@ -17,6 +17,9 @@
         <input (keydown)="clickEnter($event)" style="width: 100%" matInput placeholder="username" [(ngModel)]='username'
                value="lance77" name="username"/>
     </mat-form-field>
+    <div>
+        <a style="font-size: large;color: black;background-color: white"> {{message}}</a>
+    </div>
     <br/>
     <button mat-raised-button="" color="primary" (click)="addTodo()">add</button>
 

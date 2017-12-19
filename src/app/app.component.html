@@ -1,11 +1,17 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <mat-icon (click)="display = true" class="example-icon">menu</mat-icon>
+        <span class="example-spacer"></span>
+        <span>&nbsp;&nbsp;{{title}}</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
 <p-sidebar [(visible)]="display" style="">
-    <a class="navbar-brand" href="#" routerLink="/">MOIVE DB</a>
+    <a class="navbar-brand" href="#" routerLink="/">GENIUS DB</a>
     <div class="navbar-default" id="navbarNav">
         <hr style="color: black; border: 1px solid; width: 100%"/>
         <ul class="navbar-nav">
-
-
-
             <li class="nav-item" style="text-align: left" *ngIf="image">
                 <a class="nav-link"> <img [src]="image" style="width: 30px;height: 30px"/></a>
             </li>
@@ -17,31 +23,28 @@
                 <a class="nav-link" href="#" (click)="logout()" routerLink="/logout" style="color: red">logout</a>
             </li>
             <hr style="color: black; border: 1px solid; width: 100%"/>
-
-
             <li class="nav-item ">
-                <a class="nav-link" href="#" routerLink="/">login </a>
+                <a class="nav-link" href="#" (click)="changeTitle('login')"  routerLink="/">login </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" (click)="changeTitle('페이지001')"  routerLink="/page1">페이지001</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" (click)="changeTitle('page002')"  routerLink="/page2">page002</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" (click)="changeTitle('page003')"  routerLink="/page3">page003</a>
             </li>
 
-
             <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/page1">페이지001</a>
+                <a class="nav-link" href="#" (click)="changeTitle('dashboard')"  routerLink="/dashboard">dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/page2">page002</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/page3">page003</a>
+                <a class="nav-link" href="#" (click)="changeTitle('table')"  routerLink="/table">table</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/dashboard">dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/table">table</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/chips">chips</a>
+                <a class="nav-link" href="#" (click)="changeTitle('chips')" routerLink="/chips">chips</a>
             </li>
 
 
@@ -49,7 +52,10 @@
     </div>
 
 </p-sidebar>
-<button pButton type="button" (click)="display = true" label=" " class="ui-button-success">&nbsp;<i class="fa fa-bars" aria-hidden="true"></i>&nbsp; menu&nbsp;&nbsp; </button>
+<!--<button pButton type="button" (click)="display = true" label=" " class="ui-button-success">&nbsp;<i class="fa fa-bars"
+                                                                                                    aria-hidden="true"></i>&nbsp;
+    menu&nbsp;&nbsp;
+</button>-->
 
 <div class="fab-button-row" style="text-align: right">
     <button mat-fab color="accent" (click)="goToHead()">TOP</button>

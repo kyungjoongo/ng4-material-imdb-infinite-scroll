@@ -5,6 +5,9 @@ import {AngularFireObject} from 'angularfire2/database';
 import * as firebase from 'firebase';
 import {DashboardDetailDialog, DialogOverviewExampleDialog} from '../common/common.component';
 import {MatDialog} from '@angular/material';
+import {Observable} from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Component({
     selector: 'app-dashboard',
@@ -72,14 +75,39 @@ export class DashboardComponent implements OnInit {
         });
     }
 
+    message= '';
+
     addTodo() {
         const date2 = firebase.database.ServerValue.TIMESTAMP;
+
+        if (this.content == '' || this.username ==''){
+            this.message= '폼채우세요~'
+            return false;
+        }else{
+            this.message= '';
+        }
+
         this.showSpinner = true;
-        this.todos$.push({content: this.content, username: this.username, done: false, date: date2}).then(response => {
+        var pushing = this.todos$.push({content: this.content, username: this.username, done: false, date: date2}).then(response => {
 
             console.log('#####################' + response);
             this.showSpinner = false;
+        },reason => {
+
+            console.log('애러네');
+
+            alert('sdlfksdlkfksld');
+            this.showSpinner= false;
         });
+
+
+
+
+
+
+
+
+
     }
 
     deleteTodo(todo: any): void {

@@ -34,24 +34,28 @@ import {MatTableModule} from '@angular/material/table';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {initializeApp} from 'firebase';
-import { environment} from './common/environment';
-import { AngularFirestoreModule} from 'angularfire2/firestore';
-import { AngularFireDatabaseModule} from 'angularfire2/database-deprecated';
+import {environment} from './common/environment';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireDatabaseModule} from 'angularfire2/database-deprecated';
 import {AngularFireDatabase} from 'angularfire2/database';
-import { DashboardDetailComponent } from './dashboard-detail/dashboard-detail.component';
-import { CovalentLayoutModule, CovalentStepsModule /*, any other modules */ } from '@covalent/core';
+import {DashboardDetailComponent} from './dashboard-detail/dashboard-detail.component';
+import {CovalentLayoutModule, CovalentStepsModule /*, any other modules */} from '@covalent/core';
 // (optional) Additional Covalent Modules imports
-import { CovalentHttpModule } from '@covalent/http';
-import { CovalentHighlightModule } from '@covalent/highlight';
-import { CovalentMarkdownModule } from '@covalent/markdown';
-import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
-import { ChipsComponent } from './chips/chips.component';
-import { CovalentChipsModule} from '@covalent/core';
+import {CovalentHttpModule} from '@covalent/http';
+import {CovalentHighlightModule} from '@covalent/highlight';
+import {CovalentMarkdownModule} from '@covalent/markdown';
+import {CovalentDynamicFormsModule} from '@covalent/dynamic-forms';
+import {ChipsComponent} from './chips/chips.component';
+import {CovalentChipsModule} from '@covalent/core';
 import {AccordionModule} from 'primeng/primeng';     //accordion and accordion tab
 import {MenuItem} from 'primeng/primeng';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SidebarModule, ButtonModule} from 'primeng/primeng';
+import {NotFound404Component} from './not-found404/not-found404.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material';
+
 let providers = {
     'google': {
         'clientId': '574875960059-mkh0uvtsbe200mtfs63b84kujj6tsj1v.apps.googleusercontent.com'
@@ -65,8 +69,8 @@ let providers = {
 
 @NgModule({
     declarations: [
-        AppComponent,DashboardDetailDialog,
-        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component, LoginComponent, DashboardComponent, SignupComponent, TableComponent, DashboardDetailComponent, ChipsComponent
+        AppComponent, DashboardDetailDialog,
+        Page001Component, DialogOverviewExampleDialog, Page002Component, Page003Component, LoginComponent, DashboardComponent, SignupComponent, TableComponent, DashboardDetailComponent, ChipsComponent, NotFound404Component
     ],
     imports: [
         BrowserModule, HttpModule, HttpClientModule, MatButtonModule, MatDialogModule, BrowserAnimationsModule, NoopAnimationsModule
@@ -87,7 +91,6 @@ let providers = {
             {path: 'dashboard', component: DashboardComponent}
 
 
-
         ]), MatTabsModule, NgxPageScrollModule, MatFormFieldModule, MatInputModule
         , FormsModule, Angular2SocialLoginModule, AngularFontAwesomeModule, MatTableModule
         , AngularFireModule.initializeApp(environment.firebase), AngularFireAuthModule, AngularFirestoreModule, AngularFireDatabaseModule,
@@ -97,8 +100,8 @@ let providers = {
         CovalentHttpModule.forRoot(),
         CovalentHighlightModule,
         CovalentMarkdownModule,
-        CovalentDynamicFormsModule,CovalentChipsModule, AccordionModule, BrowserAnimationsModule, BrowserModule, SidebarModule,ButtonModule
-
+        CovalentDynamicFormsModule, CovalentChipsModule, AccordionModule, BrowserAnimationsModule, BrowserModule, SidebarModule, ButtonModule
+        , MatToolbarModule, MatIconModule
     ],
     providers: [HttpService, UserService, AuthGuard, AngularFireDatabase],
     bootstrap: [AppComponent],
@@ -106,7 +109,6 @@ let providers = {
 })
 export class AppModule {
 }
-
 
 
 Angular2SocialLoginModule.loadProvidersScripts(providers);

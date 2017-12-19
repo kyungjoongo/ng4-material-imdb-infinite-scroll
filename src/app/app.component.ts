@@ -15,9 +15,10 @@ export class AppComponent implements OnInit {
 
     @ViewChild('container')
     private container: ElementRef;
-    title = '고경준 천재님 먹는 것을 아끼면 성공한다';
+    title = 'login';
     image: string = '';
     name: string = '';
+    display :boolean = false;
 
     isLogined: boolean = false;
 
@@ -26,9 +27,12 @@ export class AppComponent implements OnInit {
         , public localstorageservice: LocalStorageService
         , public  router: Router
         , public snackBar: MatSnackBar) {
+    }
 
+    changeTitle(title){
 
-
+        this.display = false;
+        this.title = title;
     }
 
     ngOnInit() {
@@ -67,6 +71,7 @@ export class AppComponent implements OnInit {
     };
 
     logout() {
+        this.display = false;
         this.localstorageservice.clearAll();
         this.openSnackBar('로그아웃되었습니다', '');
 

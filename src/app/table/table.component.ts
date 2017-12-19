@@ -61,7 +61,7 @@ export class TableComponent implements AfterViewInit {
     }
 
     goToHead2(): void {
-        let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, '#head2');
+        let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(this.document, 'head');
         this.pageScrollService.start(pageScrollInstance);
     };
 }
